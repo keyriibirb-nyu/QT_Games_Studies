@@ -1,0 +1,125 @@
+
+main {
+    width:90%;
+    height: 20rem;
+}
+
+.error{
+    display: none;
+    width:100%;
+    background-color: red;
+}
+
+
+/* only use width in media queries */
+@media screen and (width > 2560px){
+
+main{
+    display:none;
+}
+
+.error{
+    display:block;
+}
+
+}
+
+
+/* max: 1470 px */
+@media screen and (width <= 1470px){
+
+main {
+    background-color: red;
+}
+
+.error{
+    display: none;
+}
+
+}
+
+@media screen and (width <= 1024px){
+
+main {
+    background-color: orange;
+}
+
+.error{
+    display: none;
+}
+
+}
+
+@media screen and (width <= 768px){
+
+main {
+    background-color: yellow;
+}
+    
+.error{
+    display: none;
+}
+
+}
+
+@media screen and (width <= 700px){
+
+main {
+    background-color: green;
+}
+
+.error{
+    display: none;
+}  
+
+}
+
+@media screen and (width <= 600px){
+
+main {
+    background-color: blue;
+}
+
+
+.error{
+    display: none;
+}
+  
+}
+
+
+/*  min: 500px */
+@media screen and (width <= 500px){
+
+main {
+    background-color: purple;
+}
+
+.error{
+    display: none;
+}
+
+
+    
+}
+
+
+
+
+@media screen and (width < 500px){
+
+main {
+    display:none;
+}
+
+.error{
+    display:block;
+}
+
+
+    
+}
+
+
+
+
