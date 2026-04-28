@@ -1,18 +1,156 @@
-
-main {
-    width:90%;
-    height: 20rem;
+/* GLOBAL STYLES BEGIN */
+*{
+    box-sizing: border-box;
 }
 
+html,body {
+  margin: 0;
+  padding:0;
+  font-family:'Courier New', Courier, monospace;
+  background-color: #FFF;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  object-fit:cover;
+  object-position: center;
+}
+/* GLOBAL STYLES END */
+
+
+main {
+    width:100vw;
+    height:100vh;
+}
+
+.img_container{
+    position: absolute;
+    top:0;
+    left:0;
+
+    margin:0;
+    padding:0;
+
+    /* width and height of chrome and safari */
+    /* on lg macbook, in minimized window */
+    width:1470px;
+    height:742px;
+    overflow:hidden;
+}
+
+
+/* for largest vw, want 33% w piece in top right */
+
+/* VERTICAL BARS OF GRID */
+/* top and bottom bars are opaque white */
+/* middle bar is a window for the image to appear */
+.vert_container{
+    position:absolute;
+    top:0;
+    left:0;
+    display: flex;
+    width:1470px;
+    height:742px;
+    padding:0;
+    margin:0;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+/* left */
+.vert_barL{
+    display: block;
+    width:0px;
+    height: 742px;
+    background-color: #FFF;
+}
+
+/* middle */
+.vert_barM{
+    display: block;
+    width:0px;
+    height: 742px;
+    background-color: rgba(0,0,0,0);
+}
+
+/* right */
+.vert_barR{
+    display: block;
+    width:0px;
+    height: 742px;
+    background-color: #FFF;
+}
+
+
+
+/* HORIZONAL BARS OF GRID */
+/* top and bottom bars are opaque white */
+/* middle bar is a window for the image to appear */
+.horz_container{
+    position:absolute;
+    top:0;
+    left:0;
+
+    display: flex;
+    width:1470px;
+    height:742px;
+    padding:0;
+    margin:0;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.horz_barT{
+    display: block;
+    width: 1470px;
+    height:0px;
+    background-color: #FFF;
+}
+
+.horz_barM{
+    display: block;
+    width: 1470px;
+    height: 0px;
+    background-color: rgba(0,0,0,0);
+}
+
+.horz_barB{
+    display: block;
+    width: 1470px;
+    height:0px;
+    background-color: #FFF;
+}
+
+
+
+/* if the width of the screen is too small, error div will display */
 .error{
     display: none;
     width:100%;
-    background-color: red;
+    background-color: rgb(150, 0, 0);
+    color: #FFF;
 }
 
 
-/* only use width in media queries */
-@media screen and (width > 2560px){
+.dev_indicator{
+    position: fixed;
+    top: 10px;
+    right:0;
+    width: 575px;
+    height: 50px;
+    background-color: #000;
+    z-index: 99999;
+}
+
+
+
+/* can only use width within media queries */
+/* larger than 1500px: OUT OF BOUNDS */
+/* for both chrome and safari */
+@media screen and (width > 1500px){
 
 main{
     display:none;
@@ -21,14 +159,37 @@ main{
 .error{
     display:block;
 }
-
 }
 
 
-/* max: 1470 px */
-@media screen and (width <= 1470px){
+/* largest div: 1500px */
+/* PIECE A: PINK */
 
-main {
+@media screen and (width <= 1500px){
+
+
+.dev_indicator {
+    background-color: pink;
+}
+
+.error{
+    display: none;
+}
+}
+
+
+
+/* PIECE B: RED */
+/* middle left: 50%w x 25%h. 40% from top, 35% from bottom */
+/* 1440px is laptop L conventional size */
+@media screen and (width <= 1400px){
+
+
+
+
+
+
+.dev_indicator {
     background-color: red;
 }
 
@@ -38,10 +199,27 @@ main {
 
 }
 
-@media screen and (width <= 1024px){
 
-main {
+
+/* PIECE C: ORANGE */
+@media screen and (width <= 1300px){
+
+.dev_indicator {
     background-color: orange;
+}
+
+.error{
+    display: none;
+}
+}
+
+
+
+/* PIECE D: YELLOW */
+@media screen and (width <= 1200px){
+
+.dev_indicator {
+    background-color: yellow;
 }
 
 .error{
@@ -50,10 +228,122 @@ main {
 
 }
 
-@media screen and (width <= 768px){
 
-main {
-    background-color: yellow;
+/* PIECE E: YELLOW-GREEN */
+@media screen and (width <= 1100px){
+
+
+.vert_barL{
+    /* nothing on the left */
+    width: 0;
+}
+
+.vert_barM{
+    /* image is 50% (735px) */
+    width: 735px;
+}
+
+.vert_barR{
+    /* 50% (735) */
+    width:735px;
+}
+
+
+.horz_barT{
+    /* 40% (296.8px) */
+    height:296.8px;    
+}
+
+
+.horz_barM{
+    /* image is 25% (185.5) */
+    height: 185.5px;
+}
+
+
+.horz_barB{
+    /* 35% (296.8px) */
+    height: 296.8px;
+}
+
+.dev_indicator {
+    background-color: yellowgreen;
+}
+
+.error{
+    display: none;
+}
+
+}
+
+
+
+/* PIECE F: GREEN */
+/* upper right corner: 33%w x 40%h */
+@media screen and (width <= 1000px){
+
+.vert_barL{
+    /* 66% (980px) */
+    width: 980px;
+}
+
+.vert_barM{
+    /* image is 33% (490px) */
+    width: 490px;
+}
+
+.vert_barR{
+    /* nothing on the right */
+    width:0;
+}
+
+
+.horz_barT{
+    /* nothing on the top */
+    height:0;    
+}
+
+
+.horz_barM{
+    /* image is 40% (296.8) */
+    height: 296.8px;
+}
+
+
+.horz_barB{
+    /* 60% (445.2px) */
+    height: 445.2px;
+}
+
+
+.dev_indicator {
+    background-color: green;
+}
+
+.error{
+    display: none;
+}
+
+}
+
+@media screen and (width <= 900px){
+
+.dev_indicator {
+    background-color: turquoise;
+}
+
+.error{
+    display: none;
+}
+
+}
+
+
+/* 800px */
+@media screen and (width <= 800px){
+
+.dev_indicator {
+    background-color: mediumblue;
 }
     
 .error{
@@ -62,10 +352,11 @@ main {
 
 }
 
+/* 700px */
 @media screen and (width <= 700px){
 
-main {
-    background-color: green;
+.dev_indicator {
+    background-color: blueviolet;
 }
 
 .error{
@@ -74,10 +365,11 @@ main {
 
 }
 
+/* 600px */
 @media screen and (width <= 600px){
 
-main {
-    background-color: blue;
+.dev_indicator {
+    background-color: violet;
 }
 
 
@@ -87,26 +379,10 @@ main {
   
 }
 
-
-/*  min: 500px */
-@media screen and (width <= 500px){
-
-main {
-    background-color: purple;
-}
-
-.error{
-    display: none;
-}
-
-
-    
-}
-
-
-
-
-@media screen and (width < 500px){
+/* 575px in min for SAFARI */
+/* 500px in min for CHROME */
+/* smaller than 550px: OUT OF BOUNDS */
+@media screen and (width < 550px){
 
 main {
     display:none;
