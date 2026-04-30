@@ -146,8 +146,6 @@ main {
 }
 
 
-
-/* can only use width within media queries */
 /* larger than 1500px: OUT OF BOUNDS */
 /* for both chrome and safari */
 @media screen and (width > 1500px){
@@ -162,11 +160,42 @@ main{
 }
 
 
-/* largest div: 1500px */
+
 /* PIECE A: PINK */
+/* largest div: 1500px */
+/* lower left piece: 25% width, 35% height */
 
 @media screen and (width <= 1500px){
 
+.vert_barL{
+    /* nothing on the left */
+    width: 0;
+}
+
+.vert_barM{
+    /* image is 25% (367.5px) */
+    width: 367.5px;
+}
+
+.vert_barR{
+    /* 75% (1102.5) */
+    width:1102.5px;
+}
+
+.horz_barT{
+    /* 40% + 25% -- 65% (482.3px) */
+    height:482.3px;    
+}
+
+.horz_barM{
+    /* image is 35% (259.7) */
+    height: 259.7px;
+}
+
+.horz_barB{
+    /* nothing on the bottom */
+    height: 0px;
+}
 
 .dev_indicator {
     background-color: pink;
@@ -180,14 +209,41 @@ main{
 
 
 /* PIECE B: RED */
-/* middle left: 50%w x 25%h. 40% from top, 35% from bottom */
 /* 1440px is laptop L conventional size */
+/* bottom middle piece: 50 width, 35 height */
+
 @media screen and (width <= 1400px){
 
 
+.vert_barL{
+    /* 25% on the left (367.5) */
+    width: 367.5px;
+}
 
+.vert_barM{
+    /* image is 50% (735px) */
+    width: 735px;
+}
 
+.vert_barR{
+    /* 25% (367.5) */
+    width:367.5px;
+}
 
+.horz_barT{
+    /* 40% + 25% -- 65% (482.3px) */
+    height:482.3px;    
+}
+
+.horz_barM{
+    /* image is 35% (259.7) */
+    height: 259.7px;
+}
+
+.horz_barB{
+    /* nothing on the bottom */
+    height: 0px;
+}
 
 .dev_indicator {
     background-color: red;
@@ -195,14 +251,45 @@ main{
 
 .error{
     display: none;
-}
+
 
 }
 
 
 
 /* PIECE C: ORANGE */
-@media screen and (width <= 1300px){
+/* bottom right: 25w, 35h */
+@media screen and (width <= 1250px){
+
+.vert_barL{
+    /* 75% on the left (1102.5) */
+    width: 1102.5px;
+}
+
+.vert_barM{
+    /* image is 25% (367.5px) */
+    width: 367.5px;
+}
+
+.vert_barR{
+    /* nothing on the right */
+    width:0px;
+}
+
+.horz_barT{
+    /* 40% + 25% -- 65% (482.3px) */
+    height:482.3px;    
+}
+
+.horz_barM{
+    /* image is 35% (259.7) */
+    height: 259.7px;
+}
+
+.horz_barB{
+    /* nothing on the bottom */
+    height: 0px;
+}
 
 .dev_indicator {
     background-color: orange;
@@ -214,9 +301,39 @@ main{
 }
 
 
-
 /* PIECE D: YELLOW */
-@media screen and (width <= 1200px){
+/* right middle: 50% width, 25% height */
+@media screen and (width <= 1100px){
+
+.vert_barL{
+    /* 50% on left (735) */
+    width: 735px;
+}
+
+.vert_barM{
+    /* image is 50% (735px) */
+    width: 735px;
+}
+
+.vert_barR{
+    /* nothing on right */
+    width:0px;
+}
+
+.horz_barT{
+    /* 40% on top (296.8px) */
+    height:296.8px;    
+}
+
+.horz_barM{
+    /* image is 25% (185.5) */
+    height: 185.5px;
+}
+
+.horz_barB{
+    /* 35% on bottom (296.8px) */
+    height: 296.8px;
+}
 
 .dev_indicator {
     background-color: yellow;
@@ -225,13 +342,12 @@ main{
 .error{
     display: none;
 }
-
 }
 
 
 /* PIECE E: YELLOW-GREEN */
-@media screen and (width <= 1100px){
-
+/* left middle: 50% width, 25% height */
+@media screen and (width <= 950px){
 
 .vert_barL{
     /* nothing on the left */
@@ -248,18 +364,15 @@ main{
     width:735px;
 }
 
-
 .horz_barT{
     /* 40% (296.8px) */
     height:296.8px;    
 }
 
-
 .horz_barM{
     /* image is 25% (185.5) */
     height: 185.5px;
 }
-
 
 .horz_barB{
     /* 35% (296.8px) */
@@ -280,7 +393,7 @@ main{
 
 /* PIECE F: GREEN */
 /* upper right corner: 33%w x 40%h */
-@media screen and (width <= 1000px){
+@media screen and (width <= 800px){
 
 .vert_barL{
     /* 66% (980px) */
@@ -326,7 +439,40 @@ main{
 
 }
 
-@media screen and (width <= 900px){
+
+/* PIECE G: TURQUOISE */
+/* upper left, 33%w 40%h */
+@media screen and (width <= 650px){
+
+.vert_barL{
+    /* nothing on the left */
+    width: 0px;
+}
+
+.vert_barM{
+    /* image is 33% (490px) */
+    width: 490px;
+}
+
+.vert_barR{
+    /* 66% on the right (980px) */
+    width:980px;
+}
+
+.horz_barT{
+    /* nothing on the top */
+    height:0;    
+}
+
+.horz_barM{
+    /* image is 40% (296.8) */
+    height: 296.8px;
+}
+
+.horz_barB{
+    /* 60% (445.2px) */
+    height: 445.2px;
+}
 
 .dev_indicator {
     background-color: turquoise;
@@ -335,12 +481,45 @@ main{
 .error{
     display: none;
 }
+}
 
+/* PIECE H: BLUE */
+/* upper middle: 33w 40h */
+/* 800px */
+@media screen and (width <= 600px){
+
+
+.vert_barL{
+    /* 33% on left (490) */
+    width: 490px;
+}
+
+.vert_barM{
+    /* image is 33% (490px) */
+    width: 490px;
+}
+
+.vert_barR{
+    /* 33% on the right (490px) */
+    width:490px;
+}
+
+.horz_barT{
+    /* nothing on the top */
+    height:0;    
+}
+
+.horz_barM{
+    /* image is 40% (296.8) */
+    height: 296.8px;
+}
+
+.horz_barB{
+    /* 60% (445.2px) */
+    height: 445.2px;
 }
 
 
-/* 800px */
-@media screen and (width <= 800px){
 
 .dev_indicator {
     background-color: mediumblue;
@@ -351,31 +530,6 @@ main{
 }
 
 }
-
-/* 700px */
-@media screen and (width <= 700px){
-
-.dev_indicator {
-    background-color: blueviolet;
-}
-
-.error{
-    display: none;
-}  
-
-}
-
-/* 600px */
-@media screen and (width <= 600px){
-
-.dev_indicator {
-    background-color: violet;
-}
-
-
-.error{
-    display: none;
-}
   
 }
 
@@ -383,6 +537,7 @@ main{
 /* 500px in min for CHROME */
 /* smaller than 550px: OUT OF BOUNDS */
 @media screen and (width < 550px){
+
 
 main {
     display:none;
