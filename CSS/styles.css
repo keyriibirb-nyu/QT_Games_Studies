@@ -10,6 +10,8 @@ html,body {
   background-color: #FFF;
 }
 
+
+
 img {
   width: 100%;
   height: auto;
@@ -17,7 +19,6 @@ img {
   object-position: center;
 }
 /* GLOBAL STYLES END */
-
 
 main {
     width:100vw;
@@ -39,8 +40,20 @@ main {
     overflow:hidden;
 }
 
+/* dev_indicator is to help the dev (me) tell which piece is which */
+.dev_indicator{
+    /* not displayed to player */
+    display: none;
 
-/* for largest vw, want 33% w piece in top right */
+    /* default styling */
+    position: fixed;
+    top: 10px;
+    right:0;
+    width: 575px;
+    height: 50px;
+    background-color: #555;
+    z-index: 99999;
+}
 
 /* VERTICAL BARS OF GRID */
 /* top and bottom bars are opaque white */
@@ -83,8 +96,6 @@ main {
     background-color: #FFF;
 }
 
-
-
 /* HORIZONAL BARS OF GRID */
 /* top and bottom bars are opaque white */
 /* middle bar is a window for the image to appear */
@@ -124,7 +135,25 @@ main {
     background-color: #FFF;
 }
 
+.text{
+    display: none;
+    position: absolute;
+    color:#000;
+    z-index: 99;
+    padding:0;
+    margin:0;
+}
 
+#textA{
+    display:none;
+}
+
+.welcome{
+    display: none;
+    width:100%;
+    background-color: rgb(150, 150, 200);
+    color: rgb(10,10,50);
+}
 
 /* if the width of the screen is too small, error div will display */
 .error{
@@ -134,38 +163,44 @@ main {
     color: #FFF;
 }
 
-
 .dev_indicator{
-    position: fixed;
-    top: 10px;
-    right:0;
-    width: 575px;
-    height: 50px;
     background-color: #000;
-    z-index: 99999;
 }
 
 
+
+/* MEDIA QUERIES BEGIN */
 /* larger than 1500px: OUT OF BOUNDS */
 /* for both chrome and safari */
-@media screen and (width > 1500px){
+@media screen and (width > 1400px){
+
+
+.welcome{
+    display:block;
+}
 
 main{
     display:none;
 }
 
+.text{
+    display:none;
+}
+
 .error{
-    display:block;
+    display:none;
 }
 }
-
-
 
 /* PIECE A: PINK */
-/* largest div: 1500px */
+/* largest div: 1400px */
 /* lower left piece: 25% width, 35% height */
 
-@media screen and (width <= 1500px){
+@media screen and (width <= 1400px){
+
+.text{
+    display: none;
+}
 
 .vert_barL{
     /* nothing on the left */
@@ -185,6 +220,26 @@ main{
 .horz_barT{
     /* 40% + 25% -- 65% (482.3px) */
     height:482.3px;    
+}
+
+/* text here */
+/* by default, turns every text div off */
+#textA, #textB, #textC, #textD, #textE, #textF, #textG{
+    display:none;
+}
+
+/* then, override with styling */
+#textA{
+    display: inline-block;
+
+    height: 259.7px;
+    width: 367.5px;
+    padding: 10px;
+
+    font-size: 1rem;
+    color: rgb(200,50,50);
+    top: 430.3px;
+    left: 10px;
 }
 
 .horz_barM{
@@ -211,8 +266,7 @@ main{
 /* PIECE B: RED */
 /* 1440px is laptop L conventional size */
 /* bottom middle piece: 50 width, 35 height */
-
-@media screen and (width <= 1400px){
+@media screen and (width <= 1300px){
 
 
 .vert_barL{
@@ -223,6 +277,31 @@ main{
 .vert_barM{
     /* image is 50% (735px) */
     width: 735px;
+}
+
+/* text here */
+/* by default, turns every text div off */
+#textA, #textB, #textC, #textD, #textE, #textF, #textG{
+    display:none;
+}
+
+/* then style */
+#textB{
+    display: inline-block;
+
+    height: 259.7px;
+    width: 735px;
+    padding: 10px;
+
+    text-orientation: sideways;
+    writing-mode: vertical-rl;
+
+    rotate: 180deg;
+
+    font-size: 1rem;
+
+    top: 482.3px;
+    left: 1102.5px;
 }
 
 .vert_barR{
@@ -251,15 +330,22 @@ main{
 
 .error{
     display: none;
-
-
+}
 }
 
 
 
 /* PIECE C: ORANGE */
 /* bottom right: 25w, 35h */
-@media screen and (width <= 1250px){
+@media screen and (width <= 1200px){
+
+main{
+    translate: -1100px;
+}
+
+#textC{
+    translate: -1100px;
+}
 
 .vert_barL{
     /* 75% on the left (1102.5) */
@@ -291,6 +377,24 @@ main{
     height: 0px;
 }
 
+/* by default, turns every text div off */
+#textA, #textB, #textC, #textD, #textE, #textF, #textG{
+    display:none;
+}
+
+#textC{
+    display: inline-block;
+
+    height: 259.7px;
+    width: 367.5px;
+    padding: 10px;
+
+    font-size: 1rem;
+
+    top: 390.3px;
+    left: 1100px;
+}
+
 .dev_indicator {
     background-color: orange;
 }
@@ -304,6 +408,10 @@ main{
 /* PIECE D: YELLOW */
 /* right middle: 50% width, 25% height */
 @media screen and (width <= 1100px){
+
+main{
+    translate: 0px;
+}
 
 .vert_barL{
     /* 50% on left (735) */
@@ -335,6 +443,25 @@ main{
     height: 296.8px;
 }
 
+
+/* by default, turns every text div off */
+#textA, #textB, #textC, #textD, #textE, #textF, #textG{
+    display:none;
+}
+
+#textD{
+    display: inline-block;
+
+    height: 259.7px;
+    width: 300.5px;
+    padding: 10px;
+
+    font-size: 1rem;
+
+    top: 350px;
+    left: 430px;
+}
+
 .dev_indicator {
     background-color: yellow;
 }
@@ -347,7 +474,16 @@ main{
 
 /* PIECE E: YELLOW-GREEN */
 /* left middle: 50% width, 25% height */
-@media screen and (width <= 950px){
+@media screen and (width <= 1000px){
+
+
+main{
+    translate: 1100px;
+}
+
+#textE{
+    translate: 1100px;
+}
 
 .vert_barL{
     /* nothing on the left */
@@ -379,6 +515,24 @@ main{
     height: 296.8px;
 }
 
+/* by default, turns every text div off */
+#textA, #textB, #textC, #textD, #textE, #textF, #textG{
+    display:none;
+}
+
+#textE{
+    display: inline-block;
+
+    height: 259.7px;
+    width: 750px;
+    padding: 10px;
+
+    font-size: 1rem;
+
+    top: 220px;
+    left: 5px;
+}
+
 .dev_indicator {
     background-color: yellowgreen;
 }
@@ -393,7 +547,11 @@ main{
 
 /* PIECE F: GREEN */
 /* upper right corner: 33%w x 40%h */
-@media screen and (width <= 800px){
+@media screen and (width <= 900px){
+
+main{
+    translate: 0px;
+}
 
 .vert_barL{
     /* 66% (980px) */
@@ -428,6 +586,26 @@ main{
     height: 445.2px;
 }
 
+/* by default, turns every text div off */
+#textA, #textB, #textC, #textD, #textE, #textF, #textG{
+    display:none;
+}
+
+#textF{
+    display: inline-block;
+
+    text-orientation: sideways;
+    writing-mode: vertical-rl;
+
+    height: 300px;
+    width: 750px;
+    padding: 10px;
+
+    font-size: 1rem;
+
+    top: 5px;
+    left: 230px;
+}
 
 .dev_indicator {
     background-color: green;
@@ -442,7 +620,7 @@ main{
 
 /* PIECE G: TURQUOISE */
 /* upper left, 33%w 40%h */
-@media screen and (width <= 650px){
+@media screen and (width <= 800px){
 
 .vert_barL{
     /* nothing on the left */
@@ -474,6 +652,29 @@ main{
     height: 445.2px;
 }
 
+
+/* by default, turns every text div off */
+#textA, #textB, #textC, #textD, #textE, #textF, #textG{
+    display:none;
+}
+
+#textG{
+    display: inline-block;
+
+    rotate: 180deg;
+    text-orientation: sideways;
+    writing-mode: vertical-rl;
+
+    height: 300px;
+    width: 750px;
+    padding: 10px;
+
+    font-size: 1rem;
+
+    top: 5px;
+    left: 490px;
+}
+
 .dev_indicator {
     background-color: turquoise;
 }
@@ -486,7 +687,7 @@ main{
 /* PIECE H: BLUE */
 /* upper middle: 33w 40h */
 /* 800px */
-@media screen and (width <= 600px){
+@media screen and (width <= 700px){
 
 
 .vert_barL{
@@ -520,6 +721,25 @@ main{
 }
 
 
+/* by default, turns every text div off */
+#textA, #textB, #textC, #textD, #textE, #textF, #textG{
+    display:none;
+}
+
+#textH{
+    display: inline-block;
+
+    height: 300px;
+    width: 510px;
+    padding: 10px;
+
+    font-size: 0.95rem;
+
+    top: 70px;
+    left: 492px;
+    color: #FFF;
+}
+
 
 .dev_indicator {
     background-color: mediumblue;
@@ -531,7 +751,7 @@ main{
 
 }
   
-}
+
 
 /* 575px in min for SAFARI */
 /* 500px in min for CHROME */
@@ -545,6 +765,10 @@ main {
 
 .error{
     display:block;
+}
+
+#textA, #textB, #textC, #textD, #textE, #textF, #textG, #textH{
+    display:none;
 }
 
 
