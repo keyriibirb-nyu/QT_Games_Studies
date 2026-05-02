@@ -151,8 +151,9 @@ main {
 .welcome{
     display: none;
     width:100%;
-    background-color: rgb(150, 150, 200);
+    background-color: rgb(200, 200, 250);
     color: rgb(10,10,50);
+    padding: 10px;
 }
 
 /* if the width of the screen is too small, error div will display */
