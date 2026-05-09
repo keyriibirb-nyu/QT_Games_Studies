@@ -7,7 +7,7 @@ Repository for NYU Spring 2026 Queer and Trans Games Studies
 
 Hello!
 
-Welcome to my puzzle game! 
+Welcome to puzzle.html!
 
 This game is designed for a 13in laptop screen (or larger) in mind: if you are using a smaller screen, are unable to change the width of a browser window, or are unable to open and overlay several browser windows at a time, this game will not work as intended.
 
